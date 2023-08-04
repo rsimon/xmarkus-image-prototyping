@@ -1,0 +1,14 @@
+{
+  "name": "xmarkus-electron",
+  "version": "0.1.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "electron-vite dev",
+    "preview": "electron-vite preview",
+    "prebuild": "electron-vite build"
+  },
+  "devDependencies": {
+    "electron-vite": "^1.0.27"
+  }
+}

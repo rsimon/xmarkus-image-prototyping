@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron');
+const fs = require('fs');
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -7,8 +8,18 @@ const createWindow = () => {
   })
 
   win.loadFile('index.html')
+
+  // win.webContents.openDevTools();
+}
+
+const loadImage = () => {
+
+  
+
 }
 
 app.whenReady().then(() => {
-  createWindow()
+  createWindow();
+
+  loadImage();
 })
