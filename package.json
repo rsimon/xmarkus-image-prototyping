@@ -1,0 +1,25 @@
+{
+  "name": "xmarkus-image-prototyping",
+  "version": "0.1.0",
+  "description": "Prototyping for the XMARKUS image annotation client",
+  "private": true,
+  "main": "src/index.tsx",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build --mode production",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.18",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.4",
+    "vite": "^4.4.8"
+  },
+  "dependencies": {
+    "@phosphor-icons/react": "^2.0.10",
+    "dexie": "^3.2.4",
+    "dexie-react-hooks": "^1.1.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

@@ -1,2 +1,3 @@
-# xmarkus-image-prototyping
-Prototyping for the XMARKUS image annotation client
+# XMARKUS Image Prototyping
+
+Prototyping for the XMARKUS image annotation client.
