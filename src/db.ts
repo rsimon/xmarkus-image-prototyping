@@ -6,17 +6,19 @@ export interface Image {
 
   filepath: string;
 
+  data: Blob;
+
 }
 
 export class XMarkusDatabase extends Dexie {
 
-  images!: Table<Image>; 
+  images!: Table<Image, number>; 
 
   constructor() {
     super('x-markus-db');
 
     this.version(1).stores({
-      images: '++id, filepath'
+      images: '++id, filepath, data'
     });
   }
 }
