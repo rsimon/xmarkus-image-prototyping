@@ -1,7 +1,12 @@
 import { createRoot } from 'react-dom/client';
-import { Images, ImageList } from './pages';
+import { BrowserRouter } from 'react-router-dom';
+import { App } from './App';
+
+import './index.css';
 
 const root = createRoot(document.getElementById('app'));
 root.render(
-  <ImageList />
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 );
