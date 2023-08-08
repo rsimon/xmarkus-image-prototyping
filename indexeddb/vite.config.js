@@ -6,7 +6,7 @@ export default defineConfig(({ command, mode }) => ({
   base: '',
   plugins: [ react() ],
   server: {
-    open: 'index.html'
+    open: '/'
   },
   build: {
     rollupOptions: {

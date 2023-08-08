@@ -40,13 +40,8 @@ const Layout = () => {
 
   return (
     <div className="container">
-      <aside>
-        <Sidebar />
-      </aside>
-  
-      <main>
-        <Outlet />
-      </main>
+      <Sidebar />  
+      <Outlet />
     </div>
   );
 }
