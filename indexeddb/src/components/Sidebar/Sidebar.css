@@ -1,0 +1,23 @@
+aside.main-nav {
+  background-color: var(--almost-white);
+  border-right: 1px solid var(--light-gray-border);
+  font-size: var(--font-small);
+  min-width: 250px;
+  padding: 20px;
+}
+
+aside.main-nav li + li {
+  margin-top: 0.2em;
+}
+
+aside.main-nav li a {
+  border-radius: var(--border-radius);
+  display: block;
+  padding: 8px 10px;
+}
+
+aside.main-nav li.active a {
+  background-color: var(--nav-blue);
+  color: #fff;
+}
+

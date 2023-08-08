@@ -1,6 +1,8 @@
 import { Routes, Route, Outlet, Link, Navigate } from 'react-router-dom';
 import { Sidebar } from '@/components/Sidebar';
 
+import './App.css';
+
 export const App = () => {
 
   return (
@@ -33,13 +35,13 @@ export const App = () => {
 }
 
 const Page = () => {
-  return (<div>Hello World</div>)
+  return (<main>Hello World</main>)
 }
 
 const Layout = () => {
 
   return (
-    <div className="container">
+    <div className="app-container">
       <Sidebar />  
       <Outlet />
     </div>
