@@ -5,19 +5,22 @@ export const Sidebar = () => {
   const location = useLocation();
 
   return (
-    <aside className="sidebar">
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<PageA />} />
-          <Route path="about" element={<PageB />} />
-
-          {/* Using path="*"" means "match anything", so this route
-                acts like a catch-all for URLs that we don't have explicit
-                routes for. */}
-          <Route path="*" element={<NoMatch />} />
-        </Route>
-      </Routes>
-    </aside>
+    <nav>
+    <ul>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/about">About</Link>
+      </li>
+      <li>
+        <Link to="/dashboard">Dashboard</Link>
+      </li>
+      <li>
+        <Link to="/nothing-here">Nothing Here</Link>
+      </li>
+    </ul>
+  </nav>
   )
 
 }
