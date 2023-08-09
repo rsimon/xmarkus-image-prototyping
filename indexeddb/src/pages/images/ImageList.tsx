@@ -26,7 +26,6 @@ export const ImageList = () => {
 
     checkAndPersistStorage();
 
-
     async function fetchImages() {
       const imageList = await db.images.toArray();
       setImages(imageList);
