@@ -21,7 +21,8 @@ export const ImageImport = (props: ImageUploadProps) => {
       const data = await readFileContent(file);
 
       await db.images.add({ filepath, data });
-      console.log('Image uploaded and stored in the database.');
+
+      // TODO proper lifecycle mgmt.
     });
   }
 
