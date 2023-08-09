@@ -20,7 +20,7 @@ export const ImageActions = (props: ImageActionProps) => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger asChild>
         <button
           className="image-actions-trigger absolute bottom-2 right-1">
           <DotsThree size={18} weight="bold" />

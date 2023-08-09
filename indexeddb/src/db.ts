@@ -5,10 +5,10 @@ async function checkAndPersistStorage() {
     try {
       const granted = await navigator.storage.persist();
       if (granted) {
-        console.log('Storage is now persistent.');
+        console.log('Set storage to persistent');
         // Initialize and use your Dexie instance
       } else {
-        console.log('Storage persistence denied by user.');
+        console.error('Storage persistence denied by user');
         // Handle the case where the user denied storage persistence
       }
     } catch (error) {

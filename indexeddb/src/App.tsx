@@ -1,6 +1,6 @@
 import { Routes, Route, Outlet, Link, Navigate } from 'react-router-dom';
 import { Sidebar } from '@/components/Sidebar';
-import { Images } from '@/pages';
+import { Export, Images, Markus, Vocabularies } from '@/pages';
 
 import './App.css';
 
@@ -15,17 +15,17 @@ export const App = () => {
         {/* image list + image import */}
         <Route path="images" element={<Images />} />
         
-        {/* image annotation view */}
-        <Route path="annotate/:id" element={<Page />} />
+        {/* image annotation view 
+        <Route path="annotate/:id" element={<Page />} /> */}
 
         {/* TODO vocabulary management */}
-        <Route path="vocabularies" element={<Page />} />
+        <Route path="vocabularies" element={<Vocabularies />} />
 
         {/* TODO data export */}
-        <Route path="export" element={<Page />}  />
+        <Route path="export" element={<Export />}  />
 
         {/* TODO publish to MARKUS platform */}
-        <Route path="markus" element={<Page />} />
+        <Route path="markus" element={<Markus />} />
 
         {/* TODO catch-all 404 */}
         <Route path="*" element={<NotFound />} />
@@ -33,10 +33,6 @@ export const App = () => {
     </Routes>
   )
 
-}
-
-const Page = () => {
-  return (<main>Hello World</main>)
 }
 
 const Layout = () => {
