@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { ChatText } from '@phosphor-icons/react';
-import { db } from '@/db';
+import { useDB } from '@/db';
 import { ImageActions } from './ImageActions';
 
 import './ImageList.css';
 
 export const ImageList = () => {
+
+  const db = useDB();
 
   const [images, setImages] = useState([]);
 

@@ -1,5 +1,5 @@
 import { Browser, Browsers, DotsThree, Export, Trash } from '@phosphor-icons/react';
-import { Image } from '@/db';
+import { Image } from '@/db/db';
 import {
   DropdownMenu,
   DropdownMenuContent,

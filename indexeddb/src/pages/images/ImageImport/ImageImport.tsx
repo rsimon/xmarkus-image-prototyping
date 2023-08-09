@@ -1,13 +1,15 @@
 import { useRef } from 'react';
 import { PlusCircle } from '@phosphor-icons/react';
 import { Button } from '@/components/Button';
-import { db } from '@/db';
+import { useDB } from '@/db';
 
 interface ImageUploadProps {
 
 }
 
 export const ImageImport = (props: ImageUploadProps) => {
+
+  const db = useDB();
 
   const ref = useRef(null);
 
