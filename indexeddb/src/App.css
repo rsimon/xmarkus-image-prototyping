@@ -27,6 +27,7 @@ html, body, #app {
 }
 
 main {
+  flex-grow: 1;
   padding: 30px 50px;
 }
 
