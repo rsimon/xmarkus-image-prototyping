@@ -1,5 +1,6 @@
 import { Routes, Route, Outlet, Link, Navigate } from 'react-router-dom';
 import { Sidebar } from '@/components/Sidebar';
+import { Images } from '@/pages';
 
 import './App.css';
 
@@ -12,7 +13,7 @@ export const App = () => {
         <Route index element={<Navigate to="/images" />} />
 
         {/* image list + image import */}
-        <Route path="images" element={<Page />} />
+        <Route path="images" element={<Images />} />
         
         {/* image annotation view */}
         <Route path="annotate/:id" element={<Page />} />

@@ -15,8 +15,8 @@ export const Sidebar = () => {
             <Link to="/images">Images</Link>
           </li>
 
-          <li className="active">
-            <Link to="/vocabularies">Vocabularies</Link>
+          <li>
+            <Link className="rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2" to="/vocabularies">Vocabularies</Link>
           </li>
 
           <li>

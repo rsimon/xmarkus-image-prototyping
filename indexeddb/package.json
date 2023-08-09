@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.0.10",
+    "@radix-ui/react-slot": "^1.0.2",
     "@uppy/dashboard": "^3.5.0",
     "@uppy/drag-drop": "^3.0.2",
     "@uppy/file-input": "^3.0.2",
