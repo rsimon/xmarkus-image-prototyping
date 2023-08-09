@@ -54,7 +54,7 @@ export const ImageImport = (props: ImageUploadProps) => {
         onChange={onChange} />
 
       <Button onClick={onSelect}>
-        <PlusCircle size={20} className="mr-2"/> Import Images
+        <PlusCircle size={20} className="mr-2"/> Add Images
       </Button>
     </div>
   )
