@@ -1,5 +1,5 @@
 import { Browser, Browsers, DotsThree, Export, Trash } from '@phosphor-icons/react';
-import { Image } from '@/db/db';
+import { Image } from '@/Types';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,6 +7,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/DropdownMenu';
 import { Button } from '@/components/Button';
+import { Link } from 'react-router-dom';
 
 interface ImageActionProps {
 
@@ -29,19 +30,21 @@ export const ImageActions = (props: ImageActionProps) => {
 
       <DropdownMenuContent>
         <DropdownMenuItem>
-          <Browser size={18} className="text-muted-foreground relative -top-px mr-2" /> Open image
+          <Link to={`/annotate/${props.image.id}`} >
+            <Browser size={18} className="inline text-muted-foreground relative -top-px mr-2" /> Open image
+          </Link>
         </DropdownMenuItem>
 
         <DropdownMenuItem>
-          <Browsers size={18} className="text-muted-foreground relative -top-px mr-2" /> Open in new tab
+          <Browsers size={18} className="inline text-muted-foreground relative -top-px mr-2" /> Open in new tab
         </DropdownMenuItem>
 
         <DropdownMenuItem>
-          <Export size={18} className="text-muted-foreground relative -top-px mr-2" /> Download annotations
+          <Export size={18} className="inline text-muted-foreground relative -top-px mr-2" /> Download annotations
         </DropdownMenuItem>
 
         <DropdownMenuItem>
-          <Trash size={18} className="text-muted-foreground relative -top-px mr-2" />Delete
+          <Trash size={18} className="inline text-muted-foreground relative -top-px mr-2" />Delete
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
