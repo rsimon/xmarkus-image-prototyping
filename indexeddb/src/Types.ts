@@ -7,3 +7,14 @@ export interface Image {
   data: Blob;
 
 }
+
+export interface Annotation {
+
+  id: string;
+
+  image: string;
+
+  data: Object;
+
+
+}

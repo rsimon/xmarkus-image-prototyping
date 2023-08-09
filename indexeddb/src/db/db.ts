@@ -1,5 +1,5 @@
 import Dexie, { Table } from 'dexie';
-import { Image } from '../Types';
+import { Annotation, Image } from '../Types';
 
 const checkAndPersistStorage = () => 'storage' in navigator ?
     navigator.storage.persist().then(granted => {
@@ -13,12 +13,15 @@ const checkAndPersistStorage = () => 'storage' in navigator ?
 export class XMarkusDatabase extends Dexie {
 
   images!: Table<Image, number>; 
+  
+  annotations!: Table<Annotation, string>;
 
   constructor() {
     super('x-markus-db');
 
     this.version(1).stores({
-      images: '++id, filepath, data'
+      images: '++id, filepath, data',
+      annotations: '&id, image, data'
     });
   }
 }

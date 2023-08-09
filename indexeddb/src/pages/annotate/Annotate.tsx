@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Annotorious } from '@annotorious/react';
 import { useDB } from '@/db';
 import { Image } from '@/Types';
-import { ImageAnnotator } from '@/annotorious';
+import { DexieStoragePlugin, ImageAnnotator } from '@/annotorious';
 
 export const Annotate = () => {
 
@@ -41,6 +41,8 @@ export const Annotate = () => {
                 src={URL.createObjectURL(image.data)}
                 alt={image.filepath} />
             </ImageAnnotator>
+
+            <DexieStoragePlugin image={image} />
           </Annotorious>
         </section>
       )}

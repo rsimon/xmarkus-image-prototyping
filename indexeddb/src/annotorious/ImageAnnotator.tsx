@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { AnnotoriousContext } from '@annotorious/react';
 import { Annotorious } from '@annotorious/annotorious';
 import { Children, ReactElement, cloneElement, useContext } from 'react';

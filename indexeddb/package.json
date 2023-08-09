@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@annotorious/annotorious": "file:../../../annotorious/annotorious-v3/packages/annotorious",
+    "@annotorious/core": "^3.0.0-pre-alpha-31-hotfix",
     "@annotorious/react": "^3.0.0-pre-alpha-31-hotfix",
     "@phosphor-icons/react": "^2.0.10",
     "@radix-ui/react-dropdown-menu": "^2.0.5",
