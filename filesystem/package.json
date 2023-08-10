@@ -5,7 +5,9 @@
   "private": true,
   "main": "src/index.js",
   "scripts": {
-    "start": "vite"
+    "start": "vite",
+    "build": "vite build --mode production",
+    "preview": "vite preview"
   },
   "devDependencies": {
     "vite": "^4.2.1"
