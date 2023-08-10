@@ -1,3 +1,40 @@
+async function saveFile() {
+  // create a new handle
+  const newHandle = await window.showSaveFilePicker();
+
+  // create a FileSystemWritableFileStream to write to
+  const writableStream = await newHandle.createWritable();
+
+  const enc = new TextEncoder(); // always utf-8
+  const foo = enc.encode("This is a string converted to a Uint8Array");
+
+  // write our file
+  await writableStream.write(foo);
+
+  // close the file and write the contents to disk.
+  await writableStream.close();
+}
+
+async function writeFile(fileHandle, contents) {
+  // Support for Chrome 82 and earlier.
+  if (fileHandle.createWriter) {
+    // Create a writer (request permission if necessary).
+    const writer = await fileHandle.createWriter();
+    // Write the full length of the contents
+    await writer.write(0, contents);
+    // Close the file and write the contents to disk
+    await writer.close();
+    return;
+  }
+  // For Chrome 83 and later.
+  // Create a FileSystemWritableFileStream to write to.
+  const writable = await fileHandle.createWritable();
+  // Write the contents of the file to the stream.
+  await writable.write(contents);
+  // Close the file and write the contents to disk.
+  await writable.close();
+}
+
 const readFileContent = (file) => 
   new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -62,11 +99,16 @@ const fallback = () => new Promise((resolve) => {
 });
 
 window.onload = function() {
+  const button1 = document.getElementById('save');
+  button1.addEventListener('click', async () => {
+    saveFile();
+  });
 
 
-  const button = document.getElementById('load');
-  button.addEventListener('click', async () => {
+  const button2 = document.getElementById('load');
+  button2.addEventListener('click', async () => {
 
+    /*
     fallback().then(files => {
       // console.log('files', files);
 
@@ -81,11 +123,30 @@ window.onload = function() {
     })
     /*
     console.log('opening a bunch of files!');
+    */
 
+    console.log('opening');
     const handle  = await window.showDirectoryPicker({ mode: 'readwrite' });
+    console.log('creating file');
 
+    const newFileHandle1 = await handle.getFileHandle('My Notes.txt', { create: true });
+    console.log(newFileHandle1);
+    writeFile(newFileHandle1, 'hello world!');
+
+
+    const newFileHandle2 = await handle.getFileHandle('My Notes 2.txt', { create: true });
+
+    writeFile(newFileHandle2, 'hello asdfworld!');
+
+    const newFileHandle3 = await handle.getFileHandle('My Notes 3.txt', { create: true });
+    writeFile(newFileHandle3, 'hello woasdfasdfasdfasdrld!');
+
+    /*
     const directoryStructure = await getFiles(handle, undefined);
     console.log(directoryStructure);
     */
+
+    // handle.saveFile()
+    
   });
 }
