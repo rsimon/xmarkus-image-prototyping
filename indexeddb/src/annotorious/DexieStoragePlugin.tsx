@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
-import { ImageAnnotation, ImageAnnotationStore } from '@annotorious/annotorious';
-import { useAnnotationStore } from '@annotorious/react';
+import { AnnotoriousImageAnnotator, ImageAnnotation, Origin } from '@annotorious/annotorious';
+import { useAnnotator } from '@annotorious/react';
 import { useDB } from '@/db';
 import { Image } from '@/Types';
-import { Origin } from '@annotorious/core';
 
 interface DexieStoragePluginProps {
 
@@ -15,20 +14,20 @@ export const DexieStoragePlugin = (props: DexieStoragePluginProps) => {
 
   const db = useDB();
 
-  const store = useAnnotationStore<ImageAnnotationStore>();
+  const anno = useAnnotator<AnnotoriousImageAnnotator>();
 
   useEffect(() => {
-    if (store) {
+    if (anno) {
       db.annotations
         .where('image')
         .equals(props.image.filepath)
         .toArray()
         .then(results => {
           const annotations = results.map(r => r.data) as ImageAnnotation[];
-          store.bulkAddAnnotation(annotations, true, Origin.REMOTE);
+          anno.state.store.bulkAddAnnotation(annotations, true, Origin.REMOTE);
         });
 
-      store.lifecycle.on('createAnnotation', annotation => {
+      anno.on('createAnnotation', annotation => {
         db.annotations
           .add({ 
             id: annotation.id, 
@@ -38,7 +37,7 @@ export const DexieStoragePlugin = (props: DexieStoragePluginProps) => {
           });
       });
 
-      store.lifecycle.on('updateAnnotation', (annotation, previous) => {
+      anno.on('updateAnnotation', (annotation, previous) => {
         db.annotations
           .update(previous.id, { 
             id: annotation.id, 
@@ -47,11 +46,11 @@ export const DexieStoragePlugin = (props: DexieStoragePluginProps) => {
           });
       });
 
-      store.lifecycle.on('deleteAnnotation', annotation => {
+      anno.on('deleteAnnotation', annotation => {
         console.log('deleted', annotation);
       });
     }
-  }, [store, props.image]);
+  }, [anno, props.image]);
 
   return null;
 

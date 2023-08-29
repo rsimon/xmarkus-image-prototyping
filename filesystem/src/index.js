@@ -121,25 +121,32 @@ window.onload = function() {
         // TODO proper lifecycle mgmt.
       });
     })
-    /*
+    
     console.log('opening a bunch of files!');
     */
-
+    
     console.log('opening');
     const handle  = await window.showDirectoryPicker({ mode: 'readwrite' });
     console.log('creating file');
 
+
     const newFileHandle1 = await handle.getFileHandle('My Notes.txt', { create: true });
-    console.log(newFileHandle1);
+
+    console.log('write 1');
     writeFile(newFileHandle1, 'hello world!');
 
+    window.setTimeout(() => {
+      writeFile(newFileHandle1, 'hello world! #2');
+    }, 10000);
 
+/*
     const newFileHandle2 = await handle.getFileHandle('My Notes 2.txt', { create: true });
 
     writeFile(newFileHandle2, 'hello asdfworld!');
 
     const newFileHandle3 = await handle.getFileHandle('My Notes 3.txt', { create: true });
     writeFile(newFileHandle3, 'hello woasdfasdfasdfasdrld!');
+  */
 
     /*
     const directoryStructure = await getFiles(handle, undefined);
