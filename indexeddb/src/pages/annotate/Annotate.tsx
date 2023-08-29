@@ -5,6 +5,8 @@ import { useDB } from '@/db';
 import { Image } from '@/Types';
 import { DexieStoragePlugin, ImageAnnotator } from '@/annotorious';
 
+import './Annotate.css';
+
 export const Annotate = () => {
 
   const db = useDB();
